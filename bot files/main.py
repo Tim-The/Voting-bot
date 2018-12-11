@@ -13,7 +13,8 @@ import logging
 
 # Preparing the cogs
 initial_extensions = ['voting',
-                      'basic']
+                      'basic',
+                      'Moderation']
 
 #setting up logger
 logger = logging.getLogger('discord')
