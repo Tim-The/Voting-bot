@@ -18,24 +18,23 @@ class roles:
  
  @commands.command()
  async def updates(self, ctx):
-         def has_role(author):
-             for role in author.roles:
-                 if role.id == 524947192306204673:
-                     return True
-                 return False
-
-# Check role
-         if has_role(ctx.message.author) is True:
-             role = discord.utils.get(ctx.guild.roles, id=524947192306204673)
-             user = ctx.message.author
-             await user.remove_roles(role)
-             await ctx.send(":ok_hand: Removed \"Emote updates\" role")
+     role = discord.utils.get(ctx.guild.roles, id=524947192306204673)
+     if role in ctx.message.author.roles:
+         try:
+             await ctx.message.author.remove_roles(role)
+         except (discord.Forbidden, discord.HTTPException) as error:
+             await ctx.send("Got an error: {}".format(error))
+         else:
+             await ctx.send(":ok_hand: Removed Role `{}`".format(role.name))
              return
-         role = discord.utils.get(ctx.guild.roles, id=524947192306204673)
-         user = ctx.message.author
-         await user.add_roles(role)
-         await ctx.send(":ok_hand: Added \"Emote updates\" role")
-         return
+     else:
+         try:
+             await ctx.message.author.add_roles(role)
+         except (discord.Forbidden, discord.HTTPException) as error:
+             await ctx.send("Got an error: {}".format(error))
+         else:
+             await ctx.send(":ok_hand: Added Role `{}`".format(role.name))
+             return
 
 
 def setup(bot):
