@@ -14,7 +14,7 @@ import logging
 # Preparing the cogs
 initial_extensions = ['voting',
                       'basic',
-                      'Moderation']
+                      'roles']
 
 #setting up logger
 logger = logging.getLogger('discord')
@@ -41,4 +41,4 @@ async def on_ready():
  print(f'Logged in as {client.user.name} (ID:{client.user.id}) | Connected to {len(client.guilds)} servers')
  await client.change_presence(activity=discord.Game(name='Voting on Emotes'))
 
-client.run('token location')
+client.run('token')
