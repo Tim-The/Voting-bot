@@ -17,17 +17,25 @@ class roles:
      pass
  
  @commands.command()
- async def updaterole(self, ctx):
-     if "Emotes updates" in ctx.message.author.roles:
-         member = ctx.message.author
-         role = get(member.guild.roles, name="Emote updates")
-         await  member.remove_roles(member, role)
-         await ctx.send(":ok_hand: Removed \"Emote updates\" role")
-     else:
-         member = ctx.message.author
-         role = get(member.guild.roles, name="Emote updates")
-         await member.add_roles(member, role)
+ async def updates(self, ctx):
+         def has_role(author):
+             for role in author.roles:
+                 if role.id == 524947192306204673:
+                     return True
+                 return False
+
+# Check role
+         if has_role(ctx.message.author) is True:
+             role = discord.utils.get(ctx.guild.roles, id=524947192306204673)
+             user = ctx.message.author
+             await user.remove_roles(role)
+             await ctx.send(":ok_hand: Removed \"Emote updates\" role")
+             return
+         role = discord.utils.get(ctx.guild.roles, id=524947192306204673)
+         user = ctx.message.author
+         await user.add_roles(role)
          await ctx.send(":ok_hand: Added \"Emote updates\" role")
+         return
 
 
 def setup(bot):
