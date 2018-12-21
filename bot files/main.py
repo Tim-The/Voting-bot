@@ -14,6 +14,7 @@ import logging
 # Preparing the cogs
 initial_extensions = ['voting',
                       'basic',
+                      'Moderation',
                       'roles']
 
 #setting up logger
