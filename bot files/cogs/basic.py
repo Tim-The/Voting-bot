@@ -26,12 +26,14 @@ class basic:
  @commands.guild_only()
  @commands.has_permissions(administrator=True)
  async def shutdown(self, ctx):
+  """shutsdown the bot"""
      await ctx.send("you're such a turnoff")
      await self.bot.logout()
      await self.bot.close()
 
  @commands.command()
  async def ping(self, ctx:commands.Context):
+  """Shows the Gateway Ping"""
      t1 = time.perf_counter()
      await ctx.trigger_typing()
      t2 = time.perf_counter()
