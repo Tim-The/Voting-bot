@@ -33,7 +33,7 @@ class basic:
 
  @commands.command()
  async def ping(self, ctx:commands.Context):
-     """shows the gateaway ping"""
+  """Shows the Gateway Ping"""
      t1 = time.perf_counter()
      await ctx.trigger_typing()
      t2 = time.perf_counter()
