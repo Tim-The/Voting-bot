@@ -18,6 +18,7 @@ class roles:
  
  @commands.command()
  async def updates(self, ctx):
+     """gives/removes the emote update role"""
      role = discord.utils.get(ctx.guild.roles, id=524947192306204673)
      if role in ctx.message.author.roles:
          try:

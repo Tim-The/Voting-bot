@@ -16,6 +16,7 @@ class misc:
 #521388774375161861 - Pain Designer ID
  @commands.command()
  async def urban(self, ctx, message):
+     """gives the urban result of the given word"""
      role = discord.utils.get(ctx.guild.roles, id=521388774375161861)
      if role in ctx.message.author.roles:
          #test = message        #also debug option
